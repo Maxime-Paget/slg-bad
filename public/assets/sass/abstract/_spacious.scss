@@ -1,0 +1,29 @@
+@use "sass:map" as map;
+
+$spaces: (
+    sm: 1rem,
+    md: 2rem,
+);
+
+@mixin gap($size) {
+    gap: map.get($spaces, $size)
+}
+
+@mixin padding($size) {
+    padding: map.get($spaces, $size)
+}
+
+@mixin horizontal-padding($size) {
+    padding-left: map.get($spaces, $size);
+    padding-right: map.get($spaces, $size)
+}
+
+@mixin vertical-padding($size) {
+    padding-top: map.get($spaces, $size);
+    padding-bottom: map.get($spaces, $size)
+}
+
+@mixin margin($size) {
+    margin: map.get($spaces, $size)
+}
+
