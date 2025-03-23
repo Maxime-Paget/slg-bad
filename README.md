@@ -1,6 +1,6 @@
-# Nuxt Minimal Starter
+# SLG-BAD web application project
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a web application project for the SLG-BAD project.
 
 ## Setup
 
