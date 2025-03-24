@@ -20,18 +20,19 @@
     </header>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use '../assets/sass/abstract' as *;
 
 .topbar {
-    background-color: var(--clr-background-dark-high);
+    background-color: var(--clr-background-high);
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    max-height: 10%;
+    width: 100%;
     @include gap(sm);
     @include padding(sm);
+    border-bottom: 3px solid var(--clr-border-high);
 
     &__logo {
         aspect-ratio: 1/1;
@@ -41,30 +42,37 @@
     &__redirects__list {
         text-transform: uppercase;
         list-style: none;
-        display: flex;
+        display: none;
         flex-direction: row;
         @include gap(sm);
 
         a {
-            color: var(--clr-text-light-medium);
+            color: var(--clr-text-low);
             text-decoration: none;
         }
     }
 }
 
-@media screen and (min-width: 1080px) {
-    .topbar {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        max-height: 10%;
-    }
-}
-
-@media screen and (max-width: 430px) {
+@media screen and (min-width: 430px) {
     .topbar {
         &__redirects__list {
-            display: none;
+            display: flex;
+        }
+    }
+
+    @media screen and (min-width: 1080px) {
+        .topbar {
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            display: flex;
+
+            &__logo {
+                height: 50px;
+            }
         }
     }
 }

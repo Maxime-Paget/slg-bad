@@ -1,8 +1,15 @@
 :root {
-    // backgrounds
-    --clr-background-dark-high: #000;
-
-
-    // text-colors
-    --clr-text-light-medium: #ffffffbf
+    .darktheme {
+        // backgrounds
+        --clr-background-high: #000;
+        --clr-background-primary-high: #9f0013;
+    
+        // text-colors
+        --clr-text-low: #ffffffbf;
+        --clr-text-inverse-high: #ffffff;
+    
+        // border-colors
+        --clr-border-high: #9f0013;
+        --clr-border-light: #ffffff;
+    }
 }

@@ -3,6 +3,9 @@
 $spaces: (
     sm: 1rem,
     md: 2rem,
+    lg: 3rem,
+    xl: 4rem,
+    2xl: 6rem
 );
 
 @mixin gap($size) {
@@ -11,6 +14,22 @@ $spaces: (
 
 @mixin padding($size) {
     padding: map.get($spaces, $size)
+}
+
+@mixin padding-top($size) {
+    padding-top: map.get($spaces, $size)
+}
+
+@mixin padding-bottom($size) {
+    padding-bottom: map.get($spaces, $size)
+}
+
+@mixin padding-left($size) {
+    padding-left: map.get($spaces, $size)
+}
+
+@mixin padding-right($size) {
+    padding-right: map.get($spaces, $size)
 }
 
 @mixin horizontal-padding($size) {
@@ -25,5 +44,31 @@ $spaces: (
 
 @mixin margin($size) {
     margin: map.get($spaces, $size)
+}
+
+@mixin margin-top($size) {
+    margin-top: map.get($spaces, $size)
+}
+
+@mixin margin-bottom($size) {
+    margin-bottom: map.get($spaces, $size)
+}
+
+@mixin margin-left($size) {
+    margin-left: map.get($spaces, $size)
+}
+
+@mixin margin-right($size) {
+    margin-right: map.get($spaces, $size)
+}
+
+@mixin horizontal-margin($size) {
+    margin-left: map.get($spaces, $size);
+    margin-right: map.get($spaces, $size)
+}
+
+@mixin vertical-margin($size) {
+    margin-top: map.get($spaces, $size);
+    margin-bottom: map.get($spaces, $size)
 }
 
