@@ -4,16 +4,16 @@
         <nav class="topbar__redirects">
             <ul class="topbar__redirects__list">
                 <li class="topbar__redirects__list__item">
-                    <NuxtLink to="/#home">Accueil</NuxtLink>
+                    <NuxtLink to="#home">Accueil</NuxtLink>
                 </li>
                 <li class="topbar__redirects__list__item">
-                    <NuxtLink to="/#planning">Planning</NuxtLink>
+                    <NuxtLink to="#planning">Planning</NuxtLink>
                 </li>
                 <li class="topbar__redirects__list__item">
-                    <NuxtLink to="/#contact">Contact</NuxtLink>
+                    <NuxtLink to="#contact">Contact</NuxtLink>
                 </li>
                 <li class="topbar__redirects__list__item">
-                    <NuxtLink to="/profile">Mon Profil</NuxtLink>
+                    <NuxtLink to="profile">Mon Profil</NuxtLink>
                 </li>
             </ul>
         </nav>

@@ -1,21 +1,21 @@
 <template>
     <div class="app darktheme">
         <TopBar></TopBar>
-        <section class="home">
+        <section class="home" id="home">
             <p class="home__club">
                 Saint louis de gonzague badminton
             </p>
             <p class="home__slogan">
                 Club de Badminton au centre de Limoges
             </p>
-            <div class="home__actions" id="home">
+            <div class="home__actions">
                 <button class="home__actions__button home__actions__button--booking">
-                    <NuxtLink to="/#planning">
+                    <NuxtLink to="#planning">
                         Réserver un créneau
                     </NuxtLink>
                 </button>
                 <button class="home__actions__button home__actions__button--more-info">
-                    <NuxtLink to="/#more-info">
+                    <NuxtLink to="#more-info">
                         En savoir plus
                     </NuxtLink>
                 </button>
@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import Calendar from './public/components/Calendar.vue';
+import Calendar from '@/public/components/Calendar/Calendar.vue';
 import TopBar from './public/components/TopBar.vue';
 
 </script>
@@ -117,6 +117,10 @@ import TopBar from './public/components/TopBar.vue';
         font-size: 0.8rem;
         text-align: center;
     }
+}
+
+.planning {
+    @include padding(xl);
 }
 
 @media screen and (min-width: 1080px) {
