@@ -24,7 +24,7 @@
 @use '../assets/sass/abstract' as *;
 
 .topbar {
-    background-color: var(--clr-background-high);
+    background-color: var(--clr-background-low);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -32,7 +32,7 @@
     width: 100%;
     @include gap(sm);
     @include padding(sm);
-    border-bottom: 3px solid var(--clr-border-high);
+    border-bottom: 3px solid var(--clr-border-primary-high);
 
     &__logo {
         aspect-ratio: 1/1;
@@ -45,6 +45,17 @@
         display: none;
         flex-direction: row;
         @include gap(sm);
+
+        &__item {
+            @include title-sm;
+            font-weight: 600;
+            @include padding(sm);
+            border-radius: 5px;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, .2);
+            }
+        }
 
         a {
             color: var(--clr-text-low);

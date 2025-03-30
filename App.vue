@@ -94,7 +94,7 @@ import TopBar from './public/components/TopBar.vue';
 
             &--booking {
                 background-color: var(--clr-background-primary-high);
-                border: 1px solid var(--clr-border-high);
+                border: 1px solid var(--clr-border-primary-high);
                 color: var(--clr-text-inverse-high);
             }
 

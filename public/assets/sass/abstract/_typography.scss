@@ -4,6 +4,12 @@ $font-famile: Ek Mukta, sans-serif;
     font-family: $font-famile;
 }
 
+@mixin title-xs {
+    @include use-font-family;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
 @mixin title-sm {
     @include use-font-family;
     font-size: 1.3rem;
@@ -29,3 +35,26 @@ $font-famile: Ek Mukta, sans-serif;
     line-height: 1.2;
 }
 
+@mixin body-xs {
+    @include use-font-family;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+@mixin body-sm {
+    @include use-font-family;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+@mixin body-md {
+    @include use-font-family;
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+
+@mixin body-lg {
+    @include use-font-family;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}

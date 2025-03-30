@@ -1,16 +1,22 @@
 :root {
     .darktheme {
         // backgrounds
-        --clr-background-high: #000;
+
+        --clr-background-low: #000;
+        --clr-background-high: #ffffff;
         --clr-background-primary-high: #9f0013;
-        --clr-background-primary-medium: #31afea;
-    
+        --clr-background-primary-low: #850010;
+        --clr-background-secondary-medium: #31afea;
+        --clr-background-tertiary-low: #f5f5f5;
+
         // text-colors
         --clr-text-low: #ffffffbf;
+        --clr-text-medium: #cccc;
         --clr-text-inverse-high: #ffffff;
     
         // border-colors
-        --clr-border-high: #9f0013;
+        --clr-border-primary-low: #850010;
+        --clr-border-primary-high: #9f0013;
         --clr-border-light: #ffffff;
         --clr-border-medium: #e5e5e5;
     }

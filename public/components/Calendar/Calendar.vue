@@ -1,38 +1,44 @@
 <template>
-    <div class="calendar">
-        <div class="calendar__header">
-            <button @click="previous" class="calendar__header__previous">Previous</button>
-            <span>{{ translatedMonth }} {{ currentYear }}</span>
-            <button @click="next" class="calendar__header__next">Next</button>
-        </div>
-        <table class="calendar__body">
-            <thead>
-                <tr>
-                    <th>Lundi</th>
-                    <th>Mardi</th>
-                    <th>Mercredi</th>
-                    <th>Jeudi</th>
-                    <th>Vendredi</th>
-                    <th>Samedi</th>
-                    <th>Dimanche</th>
-                </tr>
-            </thead>
-            <tbody class="calendar__body__weeks">
-                <tr v-for="(week, index) in weeksArray" :key="index" class="week">
-                    <td v-for="(day, index) in week" :key="index" class="week__day">
-                        <span class="week__day__number" :class="{ 'week__day__number--today': day === currentDay }">
-                            {{ day }}
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table class="calendar">
+        <thead class="calendar__header">
+            <tr class="calendar__header__month">
+                <button @click="previous" class="calendar__header__month__previous">
+                    <ArrowIcon direction="left" />
+                </button>
+                <span class="calendar__header__month__value">{{ translatedMonth }} {{ currentYear }}</span>
+                <button @click="next" class="calendar__header__month__next">
+                    <ArrowIcon direction="right" />
+                </button>
+            </tr>
+            <tr class="calendar__header__days">
+                <th class="calendar__header__days__day">Lun</th>
+                <th class="calendar__header__days__day">Mar</th>
+                <th class="calendar__header__days__day">Mer</th>
+                <th class="calendar__header__days__day">Jeu</th>
+                <th class="calendar__header__days__day">Ven</th>
+                <th class="calendar__header__days__day">Sam</th>
+                <th class="calendar__header__days__day">Dim</th>
+            </tr>
+        </thead>
+        <tbody class="calendar__weeks">
+            <tr v-for="(week, index) in weeksArray" :key="index" class="week">
+                <td v-for="(dayitem, index) in week" :key="index" class="week__day" @click="activeDay = dayitem">
+                    <span class="week__day__number" :class="{
+                        'week__day__number--today': dayitem.day === today.day && dayitem.month === today.month + 1,
+                        'week__day__number--disabled': new Date(dayitem.year, dayitem.month - 1, dayitem.day) < new Date(today.year, today.month, today.day),
+                    }">
+                        {{ dayitem.day }}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>
 
 <script setup lang="ts">
 import { startOfMonth, endOfMonth, eachDayOfInterval, format, eachWeekOfInterval, } from 'date-fns';
 import { fr } from 'date-fns/locale';
+import ArrowIcon from '../Icons/ArrowIcon.vue';
 
 const today = {
     year: new Date().getFullYear(),
@@ -44,6 +50,13 @@ const currentYear = ref(today.year);
 const currentMonth = ref(today.month);
 const currentDay = (today.day);
 
+const activeDay = computed(() => {
+    return {
+        year: currentYear.value,
+        month: currentMonth.value,
+        day: currentDay,
+    };
+});
 
 function previous() {
     currentMonth.value -= 1;
@@ -79,8 +92,11 @@ const weeksArray = computed(() => {
     return weeks.map((weekStart) => {
         const weekEnd = new Date(weekStart);
         weekEnd.setDate(weekEnd.getDate() + 6); // Add 6 days to get the end of the week
-        return eachDayOfInterval({ start: weekStart, end: weekEnd }).map((date) =>
-            parseInt(format(date, 'd', { locale: fr }))
+        return eachDayOfInterval({ start: weekStart, end: weekEnd }).map((date) => ({
+            day: parseInt(format(date, 'd', { locale: fr })),
+            month: parseInt(format(date, 'M', { locale: fr })),
+            year: parseInt(format(date, 'yyyy', { locale: fr })),
+        })
         );
     });
 });
@@ -100,40 +116,101 @@ const translatedMonth = computed(() => {
     align-items: center;
     justify-content: center;
     width: 100%;
+    min-width: fit-content;
     height: fit-content;
 
     &__header {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &__month {
+            background-color: var(--clr-background-primary-high);
+            outline: 1px solid var(--clr-border-primary-high);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include padding(sm);
+
+            &__value {
+                @include title-xs;
+                color: var(--clr-text-inverse-high);
+                border: 1px solid var(--clr-border-high);
+                text-transform: uppercase;
+                font-weight: 800;
+            }
+        }
+
+        &__days {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            @include vertical-padding(sm);
+            background-color: var(--clr-background-primary-low);
+            color: var(--clr-text-inverse-high);
+            outline: 1px solid var(--clr-border-primary-low);
+
+            &__day {
+                width: 100%;
+                text-align: center;
+                text-transform: uppercase;
+                @include body-xs;
+            }
+        }
     }
 
-    &__body {
-        list-style: none;
+    &__weeks {
         width: 100%;
     }
-
 }
 
 .week {
+    width: 100%;
+    display: flex;
+
     &__day {
         outline: 1px solid var(--clr-border-medium);
         @include padding(md);
-        width: 1rem;
+        width: 100%;
         aspect-ratio: 1/1;
+        background-color: var(--clr-background-high);
+
+        &:hover {
+            cursor: pointer;
+
+            & .week__day__number {
+                background-color: var(--clr-background-primary-low);
+                color: var(--clr-text-inverse-high);
+            }
+
+            &:has(.week__day__number--disabled) {
+                cursor: not-allowed;
+            }
+        }
+
+
+        &:has(.week__day__number--disabled) {
+            background-color: var(--clr-background-tertiary-low);
+        }
 
         &__number {
             display: block;
-            width: 4ch;
-            height: 4ch;
+            width: 100%;
+            height: 100%;
             border-radius: 100%;
             margin: auto;
             text-align: center;
             align-content: center;
-            // @include padding(sm);
+            @include body-sm;
+            font-weight: 800;
 
-
+            &--disabled {
+                color: var(--clr-text-medium) !important;
+                background-color: transparent !important;
+            }
 
             &--today {
-                background-color: var(--clr-background-primary-medium);
+                background-color: var(--clr-background-secondary-medium);
             }
         }
     }
