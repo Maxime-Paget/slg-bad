@@ -2,6 +2,7 @@
   "name": "nuxt-app",
   "private": true,
   "type": "module",
+  "homepage": "https://maxime-paget.github.io/slg-bad/",
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
