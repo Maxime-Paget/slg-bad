@@ -169,8 +169,10 @@ const translatedMonth = computed(() => {
     display: flex;
 
     &__day {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         outline: 1px solid var(--clr-border-medium);
-        @include padding(md);
         width: 100%;
         aspect-ratio: 1/1;
         background-color: var(--clr-background-high);
@@ -195,10 +197,7 @@ const translatedMonth = computed(() => {
 
         &__number {
             display: block;
-            width: 100%;
-            height: 100%;
             border-radius: 100%;
-            margin: auto;
             text-align: center;
             align-content: center;
             @include body-sm;

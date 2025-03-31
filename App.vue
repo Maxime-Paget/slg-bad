@@ -24,7 +24,7 @@
         </section>
         <section id="more-info" class="more-info"></section>
         <section id="planning" class="planning">
-            <Calendar />
+            <Calendar class="planning__calendar" />
         </section>
         <section id="contact" class="contact"></section>
     </div>
@@ -120,12 +120,22 @@ import TopBar from './public/components/TopBar.vue';
 }
 
 .planning {
-    @include padding(xl);
+    @include padding(sm);
 }
 
 @media screen and (min-width: 1080px) {
     .home {
         margin-top: 85px
+    }
+
+    .planning {
+        @include padding(xl);
+        display: flex;
+        justify-content: center;
+
+        &__calendar {
+            max-width: 65%;
+        }
     }
 }
 </style>
