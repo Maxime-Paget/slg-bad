@@ -202,6 +202,8 @@ const translatedMonth = computed(() => {
             align-content: center;
             @include body-sm;
             font-weight: 800;
+            width: 4ch;
+            aspect-ratio: 1/1;
 
             &--disabled {
                 color: var(--clr-text-medium) !important;
