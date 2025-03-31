@@ -3,10 +3,8 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/public/assets/sass/main.scss'],
-  vite: {
-    base: '/slg-bad'
-  },
   app: {
+    baseURL: '/slg-bad',
     head: {
       title: 'SLG Badminton - Limoges',
       link: [
