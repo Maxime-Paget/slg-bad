@@ -188,10 +188,21 @@ import TopBar from './public/components/TopBar.vue';
         @include padding(sm);
         width: fit-content;
 
+        &__title {
+            @include title-sm;
+            text-transform: uppercase;
+            color: var(--clr-text-placeholder);
+        }
+
         &__values {
             display: flex;
             justify-content: center;
-            @include gap(md);
+            align-items: center;
+            text-align: center;
+            gap: 1rem 1rem;
+            flex-wrap: wrap;
+
+
 
             &__value {
                 display: flex;
