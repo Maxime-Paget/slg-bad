@@ -1,5 +1,6 @@
 <template>
-    <img :src="`./assets/icons/arrow-${props.direction}.svg`" :alt="`arrow ${props.direction}`" class="arrow-icon" />
+    <img :src="`./slg-bad/assets/icons/arrow-${props.direction}.svg`" :alt="`arrow ${props.direction}`"
+        class="arrow-icon" />
 </template>
 
 <script setup lang="ts">
