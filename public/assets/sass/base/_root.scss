@@ -13,11 +13,20 @@
         --clr-text-low: #ffffffbf;
         --clr-text-medium: #cccc;
         --clr-text-inverse-high: #ffffff;
+        --clr-text-placeholder: #9e9e9e;
+        --clr-text-positive: #47b04b;
+        --clr-text-warn: #f90;
+        --clr-text-negative: #f7412d;
     
         // border-colors
+        --clr-border-low: #000;
         --clr-border-primary-low: #850010;
         --clr-border-primary-high: #9f0013;
         --clr-border-light: #ffffff;
         --clr-border-medium: #e5e5e5;
+        --clr-border-placeholder: #9e9e9e;
+        --clr-border-positive: #47b04b;
+        --clr-border-warn: #f90;
+        --clr-border-negative: #f7412d;
     }
 }

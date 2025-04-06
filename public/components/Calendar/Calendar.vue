@@ -133,7 +133,7 @@ const translatedMonth = computed(() => {
             @include padding(sm);
 
             &__value {
-                @include title-xs;
+                @include title-xl;
                 color: var(--clr-text-inverse-high);
                 border: 1px solid var(--clr-border-high);
                 text-transform: uppercase;

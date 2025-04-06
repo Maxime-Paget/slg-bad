@@ -7,54 +7,49 @@ $font-famile: Ek Mukta, sans-serif;
 @mixin title-xs {
     @include use-font-family;
     font-size: .5rem;
-    line-height: .5;
 }
 
 @mixin title-sm {
     @include use-font-family;
     font-size: .7rem;
-    line-height: .7;
-
 }
 
 @mixin title-md {
     @include use-font-family;
     font-size: .9rem;
-    line-height: .9;
 }
 
 @mixin title-lg {
     @include use-font-family;
     font-size: 1rem;
-    line-height: 1;
 }
 
 @mixin title-xl {
     @include use-font-family;
     font-size: 1.3rem;
-    line-height: 1.3;
+}
+
+@mixin title-2xl {
+    @include use-font-family;
+    font-size: 2rem;
 }
 
 @mixin body-xs {
     @include use-font-family;
     font-size: 0.8rem;
-    line-height: 1.2;
 }
 
 @mixin body-sm {
     @include use-font-family;
     font-size: 1rem;
-    line-height: 1.2;
 }
 
 @mixin body-md {
     @include use-font-family;
     font-size: 1.2rem;
-    line-height: 1.2;
 }
 
 @mixin body-lg {
     @include use-font-family;
     font-size: 1.4rem;
-    line-height: 1.2;
 }
